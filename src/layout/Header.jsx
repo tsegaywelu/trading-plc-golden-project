@@ -6,9 +6,9 @@ const Header = () => {
     <div>
       <div className='flex justify-evenly shadow p-3 items-center'>
 
-        <img src="./logo.PNG" alt="image loading "  width={100} height={50}/>
-
-      <Link to="/Home">Home</Link>
+        <img src="./logo2.jpg" alt="image loading "  width={100} height={50}/>
+        
+      <Link to="/">Home</Link>
       <Link to='./Services'>Services/Products</Link>
       <Link to="/about">About Us</Link>
       <Link to="/contact">Contact Us</Link>

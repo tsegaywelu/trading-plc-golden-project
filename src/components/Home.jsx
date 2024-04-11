@@ -1,9 +1,14 @@
 import React from 'react'
 
-export const Home = () => {
+const Home = () => {
   return (
-    <div>you are in the home page
-      this have ato diplau under header page 
+
+    <div>
+      <h1>this is home page</h1>
+     <div className='ml-4'> <img src="./farm1.jpg" alt="loading image" /></div>
+    
     </div>
   )
 }
+
+export default Home
