@@ -11,6 +11,9 @@ const API_SERVICE = axios.create({
 const ApI = {
     addnews: async (data) => {
         return  API_SERVICE.post("/addnews", data)
+},
+getnews: async () => {
+    return  API_SERVICE.get("/getnews")
 }
 }
 

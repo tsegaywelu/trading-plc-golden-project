@@ -61,8 +61,8 @@ const Contact = () => {
                             <div className="ml-4 mb-4">
                                 <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">Contact
                                 </h3>
-                                <p className="text-gray-600 dark:text-slate-400">Mobile: +1 (123) 456-7890</p>
-                                <p className="text-gray-600 dark:text-slate-400">Mail: tailnext@gmail.com</p>
+                                <p className="text-gray-600 dark:text-slate-400">Mobile: +25170708581</p>
+                                <p className="text-gray-600 dark:text-slate-400">Mail: info@goldenbic.biz</p>
                             </div>
                         </li>
                         <li className="flex">
@@ -77,8 +77,8 @@ const Contact = () => {
                             <div className="ml-4 mb-4">
                                 <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">Working
                                     hours</h3>
-                                <p className="text-gray-600 dark:text-slate-400">Monday - Friday: 08:00 - 17:00</p>
-                                <p className="text-gray-600 dark:text-slate-400">Saturday &amp; Sunday: 08:00 - 12:00</p>
+                                <p className="text-gray-600 dark:text-slate-400">Monday to Saturday from 2am to 12pm</p>
+                               
                             </div>
                         </li>
                     </ul>
