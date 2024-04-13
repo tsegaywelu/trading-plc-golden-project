@@ -3,7 +3,7 @@ import React from 'react'
 const FAQ = () => {
   return (
     <div>
-<div className="py-4 bg-white">
+<div className="py-4 bg-white  mt-5">
     <div className="max-w-screen-md mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between">
 
         <div className="text-center">
@@ -37,8 +37,7 @@ const FAQ = () => {
                             </svg>
                         </div>
                         <div className="bg-gray-100 p-5 px-10 w-full flex items-center">
-                            <h4 className="text-md leading-6 font-medium text-gray-900">What could possibly be your first
-                                question?</h4>
+                            <h4 className="text-md leading-6 font-medium text-gray-900">What is golden were does it focus ?</h4>
                         </div>
                     </div>
 
