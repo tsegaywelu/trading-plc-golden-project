@@ -1,6 +1,7 @@
 
 //importing model
 const News=require('../models/News');
+const Usersadd=require('../models/Users');
 
 const addnews=async (req,res)=>{
    /* console.log(req.body,req.files.myfile); */
@@ -22,5 +23,23 @@ const getnews=async (req,res)=>{
     
 }
 
+//insert the user email,password,name to db
+const Registeruser=async (req,res)=>{
+    const {name,email,password}=req.body;
+    console.table({name,email,password})
+    const user=new Usersadd({name,email,password});
+    await user.save();
+    res.send('user added succesfully to db');
+}
 
-module.exports={addnews,getnews}
+//find user with email and password from db
+
+const loguser=async (req,res)=>{
+    const {email,password}=req.body;
+    console.table({email,password})
+    const user=await Usersadd.findOne({email,password});
+    res.send(user);
+}
+
+
+module.exports={addnews,getnews,Registeruser,loguser}
