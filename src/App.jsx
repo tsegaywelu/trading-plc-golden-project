@@ -12,6 +12,7 @@ import News from './components/News';
 import Language from './components/contextprovider/Language';
 import Login from './components/Login';
 import Postnews from './components/admin/Postnews';
+import Registration from './components/Registration';
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
           <Route path={'/FAQ'}            element={< FAQ/>}></Route>
           <Route path={'/login'}          element={< Login/>}></Route>
           <Route path={'/postnews'}          element={< Postnews/>}></Route>
+          <Route path={'/register'}          element={< Registration/>}></Route>
         </Routes>
       </BrowserRouter>
     </Language>

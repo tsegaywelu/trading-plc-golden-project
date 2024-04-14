@@ -1,7 +1,20 @@
-import React from 'react'
+import React,{useState} from 'react'
+import { Link } from 'react-router-dom'
+import API from './Utility/API'
 
 const Login = () => {
+    const [userinfo,setuserinfo]=useState({email:"",password:""})
+    function loguser(e){
+        e.preventDefault()
+       
+        API.Loginuser(userinfo).then((data)=>{
+            console.log(data)
+        })
+    }
+
   return (
+   
+
     <div>
 <div className="py-16">
     <div className="flex bg-white rounded-lg shadow-lg overflow-hidden  justify-evenly">
@@ -9,6 +22,7 @@ const Login = () => {
             style="background-image:url('https://images.unsplash.com/photo-1546514714-df0ccc50d7bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80')">
         </div> */}
         <img src="logo.PNG" alt="" className='w-1/2 ' />
+    
         <div className="w-full p-8 lg:w-1/2">
             <h2 className="text-2xl font-semibold text-gray-700 text-center">Brand</h2>
             <p className="text-xl text-gray-600 text-center">Welcome back!</p>
@@ -38,21 +52,26 @@ const Login = () => {
             </div>
             <div className="mt-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
-                <input className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email" />
+                <input className="bg-gray-200 text-gray-700 focus:outline-none
+                 focus:shadow-outline border border-gray-300 rounded py-2 px-4 block 
+                    w-full appearance-none" type="email"  value={userinfo.email} onChange={(e)=>setuserinfo(p=>({...p,email:e.target.value}))}/>
             </div>
             <div className="mt-4">
                 <div className="flex justify-between">
                     <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
                     <a href="#" className="text-xs text-gray-500">Forget Password?</a>
                 </div>
-                <input className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="password" />
+                <input className="bg-gray-200 text-gray-700 focus:outline-none 
+                focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" 
+                type="password" value={userinfo.password} onChange={(e)=>setuserinfo(p=>({...p,password:e.target.value}))} />
             </div>
             <div className="mt-8">
-                <button className="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600">Login</button>
+                <button className="bg-gray-700 text-white font-bold py-2 px-4 w-full
+                 rounded hover:bg-gray-600" onClick={loguser}>Login</button>
             </div>
             <div className="mt-4 flex items-center justify-between">
                 <span className="border-b w-1/5 md:w-1/4"></span>
-                <a href="#" className="text-xs text-gray-500 uppercase">or sign up</a>
+                <Link to="/register" className="text-md hover:text-green-900  text-gray-500 uppercase">or sign up</Link>
                 <span className="border-b w-1/5 md:w-1/4"></span>
             </div>
         </div>
