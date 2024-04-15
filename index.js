@@ -5,7 +5,7 @@ app.use(cors());
 const bodyParser=require('body-parser');
 const dotenv = require('dotenv')
 dotenv.config();
-
+//to day is 15 for github ceck
 const fileUpload = require('express-fileupload');
 const port= process.env.port||3000;//if no port in .env file use 3000 
 app.use(bodyParser.urlencoded({extended:true}));///used to form data
