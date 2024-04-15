@@ -2,6 +2,7 @@
 //importing model
 const News=require('../models/News');
 const Usersadd=require('../models/Users');
+const jwt=require('jsonwebtoken')
 
 const addnews=async (req,res)=>{
    /* console.log(req.body,req.files.myfile); */
@@ -37,9 +38,38 @@ const Registeruser=async (req,res)=>{
 const loguser=async (req,res)=>{
     const {email,password}=req.body;
     console.table({email,password})
+    
     const user=await Usersadd.findOne({email,password});
-    res.send(user);
-}
+  
+   //if password is correct then api will send jwt to the front end    so please help me codeium help me 
+    if(user){
+        
+        //jenerate jwt here 
+        const payload={
+            
+                id:user._id//because default id is _id  on mongo database
+
+        }
+        jwt.sign(payload,process.env.jwtsec,{expiresIn:36000},(err,token)=>{
+            //the jwt expires in 10 hour even if the user is actively using the app
+            if(err) throw err;
+            res.json({token})
+        })
+        
+    }else{
+        res.send('user not found');
+    }
+    }
+
+    const checktoken=async (req,res)=>{
+        const {data}=req.body;
+        console.log(data)
+         jwt.verify(data,process.env.jwtsec,(err,user)=>{
+            console.log(user,err)
+            if(err) return res.status(401).send('invalid token');
+            res.status(200).send(user)
+        }) 
+    }
 
 
-module.exports={addnews,getnews,Registeruser,loguser}
+module.exports={addnews,getnews,Registeruser,loguser,checktoken}
