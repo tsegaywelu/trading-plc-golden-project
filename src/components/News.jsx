@@ -30,7 +30,7 @@ const News = () => {
 
             <a className="relative" href='#'>
                 <div className="relative w-full aspect-video">
-                   {n?.imageUrl.includes('mp4')||n?.imageUrl.includes('mkv')?<video src={`http://localhost:3000/public/${n?.imageUrl}`} autoPlay controls></video>: <img className="rounded w-full h-full object-cover"
+                   {n?.imageUrl.includes('mp4')||n?.imageUrl.includes('mkv')?<video src={`http://localhost:3000/public/${n?.imageUrl}`}  controls></video>: <img className="rounded w-full h-full object-cover"
                         src={`http://localhost:3000/public/${n?.imageUrl}`}/>}
             
                 

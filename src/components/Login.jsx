@@ -1,14 +1,21 @@
 import React,{useState} from 'react'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import API from './Utility/API'
 
 const Login = () => {
+    const navigate=useNavigate()
     const [userinfo,setuserinfo]=useState({email:"",password:""})
     function loguser(e){
         e.preventDefault()
        
         API.Loginuser(userinfo).then((data)=>{
-            console.log(data)
+           
+            if(data.data.token){
+                console.log(data.data.token)
+                localStorage.setItem("token",data.data.token)
+                navigate("/",{replace:true})
+            }
+            //console.log(data)
         })
     }
 

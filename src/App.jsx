@@ -6,8 +6,6 @@ import Header from './layout/Header';
 import About from './components/About';
 import Contact from './components/Contact';
 import Services from './components/Services';
-import Share from './components/Share';
-import FAQ from './components/FAQ';
 import News from './components/News';
 import Language from './components/contextprovider/Language';
 import Login from './components/Login';
@@ -26,8 +24,6 @@ const App = () => {
           <Route path={'/Contact'}        element={<Contact/>}></Route>
           <Route path={'/Services'}       element={<Services/>}></Route>
           <Route path={'/news'}        element={<News/>}></Route>
-          <Route path={'/Shares'}          element={< Share/>}></Route>
-          <Route path={'/FAQ'}            element={< FAQ/>}></Route>
           <Route path={'/login'}          element={< Login/>}></Route>
           <Route path={'/postnews'}          element={< Postnews/>}></Route>
           <Route path={'/register'}          element={< Registration/>}></Route>

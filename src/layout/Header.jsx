@@ -17,8 +17,6 @@ const Header = () => {
         <Link to='./Services'>{language=='English'?"Services/Products":"እንህቦም ግልጋሎታት"}</Link>
         <Link to="/about">{language=='English'?"About Us":"ብዛዕባና"}</Link>
         <Link to="/contact">{language=='English'?"Contact Us":"ይርከቡና"}</Link>
-        <Link to='./Shares'> {language=='English'?"Shares":"ሼር ይዓድጉ"}</Link>
-        <Link to='./FAQ'> {language=='English'?"FAQ":"ተደጋገምቲ ሕቶታት"}</Link>
         <Link to="/login">{language=='English'?"Login":"ይእተዉ"}</Link>
        
         <select name="language"  className='text-green-900' onChange={(e)=>setlanguage(e.target.value)}>
