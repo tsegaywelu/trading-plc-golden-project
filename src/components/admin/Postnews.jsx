@@ -2,6 +2,7 @@ import React,{useEffect, useState} from 'react'
 import ApI from '../Utility/API'
 import {Link,useNavigate} from 'react-router-dom'
 //for git hub check and check 15 date
+//seconed check github
 
 const Postnews = () => {
     const [load,setload]=useState(false)
