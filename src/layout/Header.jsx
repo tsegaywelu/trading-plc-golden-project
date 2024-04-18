@@ -1,28 +1,59 @@
-import React, { useState,useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 
-import { LanguageContext } from '../components/contextprovider/Language';
-const Header = () => { 
-  const {contextData}=useContext(LanguageContext);
-  const [language,setlanguage]=useState(contextData.Language);
-  console.log(language);
-  
+import { LanguageContext } from "../components/contextprovider/Language";
+const Header = () => {
+  const { contextData, setcontextData } = useContext(LanguageContext);
+
+  console.log(contextData.Language);
 
   return (
-    <div >
-      <div className={'flex justify-evenly p-3 items-center   shadow-lg'}>
-        <img src="./logo2.jpg" alt="image loading "  width={50} height={50}/>
-        <Link to="/">{language=='English'?"Home":"ዋና ገጽ"}</Link>
-        <Link to='./news'> {language=='English'?"News":"ሓዱሽ ሓበሬታ"}</Link>
-        <Link to='./Services'>{language=='English'?"Services/Products":"እንህቦም ግልጋሎታት"}</Link>
-        <Link to="/about">{language=='English'?"About Us":"ብዛዕባና"}</Link>
-        <Link to="/contact">{language=='English'?"Contact Us":"ይርከቡና"}</Link>
-        <Link to="/login">{language=='English'?"Login":"ይእተዉ"}</Link>
-       
-        <select name="language"  className='text-green-900' onChange={(e)=>setlanguage(e.target.value)}>
-        <option value="English" selected={language.language=="English"}>English</option>
-          <option value="ትግሪኛ" selected={language.language=="ትግሪኛ"}>ትግሪኛ</option>
-          
+    <div>
+      <div className={"flex justify-evenly p-3 items-center   shadow-lg"}>
+        <img src="./logo2.jpg" alt="image loading " width={50} height={50} />
+        <Link to="/">
+          {contextData.Language == "English" ? "Home" : "ዋና ገጽ"}
+        </Link>
+        <Link to="./Services">
+          {contextData.Language == "English"
+            ? "Services/Products"
+            : "እንህቦም ግልጋሎታት"}
+        </Link>
+        <Link to="./news">
+          {" "}
+          {contextData.Language == "English" ? "News" : "ሓዱሽ ሓበሬታ"}
+        </Link>
+        <Link to="/about">
+          {contextData.Language == "English" ? "About Us" : "ብዛዕባና"}
+        </Link>
+        <Link to="/postnews">
+          {contextData.Language == "English" ? "Post News" : "አድራሻ አድራሻ"}
+        </Link>
+
+        <Link to="/contact">
+          {contextData.Language == "English" ? "Contact Us" : "ይርከቡና"}
+        </Link>
+        <Link to="/login">
+          {contextData.Language == "English" ? "Login" : "ይእተዉ"}
+        </Link>
+
+        <select
+          name="contextData.Language"
+          className="text-green-900"
+          value={contextData.Language}
+          onChange={(e) =>
+            setcontextData((d) => ({
+              ...d,
+              Language: e.target.value,
+            }))
+          }
+        >
+          <option value="English" selected={contextData.Language == "English"}>
+            English
+          </option>
+          <option value="ትግሪኛ" selected={contextData.Language == "ትግሪኛ"}>
+            ትግሪኛ
+          </option>
         </select>
       </div>
     </div>
