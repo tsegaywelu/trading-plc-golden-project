@@ -13,6 +13,8 @@ import Postnews from "./components/admin/Postnews";
 import Registration from "./components/Registration";
 import Logout from "./components/Logout";
 import Notification from "./components/Notification";
+import Gallery from "./components/Gallery";
+import Postevent from "./components/admin/Postevent";
 
 const App = () => {
   return (
@@ -30,6 +32,8 @@ const App = () => {
           <Route path={"/register"} element={<Registration />}></Route>
           <Route path={"/logout"} element={<Logout />}></Route>
           <Route path={"/notification"} element={<Notification />}></Route>
+          <Route path={"/gallery"} element={<Gallery />}></Route>
+          <Route path={"/postevent"} element={<Postevent />}></Route>
         </Routes>
       </BrowserRouter>
     </Language>

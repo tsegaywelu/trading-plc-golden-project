@@ -34,6 +34,9 @@ const Header = () => {
         <Link to="/postnews">
           {contextData.Language == "English" ? "Post News" : "ዜና የእትው"}
         </Link>
+        <Link to="/postevent">
+          {contextData.Language == "English" ? "post event" : "ናይ ቀጻሊ ስራሕ"}
+        </Link>
         <Link to="/gallery">
           {contextData.Language == "English" ? "Gallery" : "ምስሊታት"}
         </Link>
