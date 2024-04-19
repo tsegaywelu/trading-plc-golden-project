@@ -113,6 +113,27 @@ const Home = () => {
               )}
               <h3>{n?.Title}</h3>
               <p>{n?.description}</p>
+              <textarea
+                name="comment"
+                id="comments"
+                cols="20"
+                rows="2"
+                placeholder={
+                  contextData.Language == "English"
+                    ? "  write your comment here"
+                    : "ረኢቶኦም አብዚ ይጽሓፍልና"
+                }
+                className="bg-gray-900 w-full text-white font-bold rounded-lg p-2"
+              ></textarea>
+              <button
+                className="w-full flex justify-center py-2 px-4 border
+             border-transparent text-sm font-medium rounded-md text-white
+              bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-indigo-700 
+              focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150
+               ease-in-out"
+              >
+                post
+              </button>
             </div>
           ))}
         </Slider>
@@ -129,13 +150,28 @@ const Home = () => {
                 thuehfiewgfieyw
               </p>
             </a>
+            <a href="">
+              <p className="flex justify-center align-middle text-blue-700 hover:text-green-600 hover:font-bold">
+                thuehfiewgfieyw
+              </p>
+            </a>
+            <a href="">
+              <p className="flex justify-center align-middle text-blue-700 hover:text-green-600 hover:font-bold">
+                thuehfiewgfieyw
+              </p>
+            </a>
+            <a href="">
+              <p className="flex justify-center align-middle text-blue-700 hover:text-green-600 hover:font-bold">
+                thuehfiewgfieyw
+              </p>
+            </a>
             <p className="flex justify-center align-middle">kbviyerbviyerb</p>
           </div>
         </div>
       </div>
 
       <div>
-        <ul className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 overflow-hidden ">
+        <ul className="grid gap-8 grid-cols-2 lg:grid-cols-3 overflow-hidden mt-14 ">
           {news?.map((n) => (
             <li className="relative bg-white flex flex-col border rounded shadow-md hover:shadow-primary-400">
               <a className="relative" href="#">

@@ -1,52 +1,14 @@
-import React, { useEffect, useState } from "react";
-import ApI from "../Utility/API";
-import { useNavigate } from "react-router-dom";
-//for git hub check and check 15 date
-//seconed check github
+import React, { useContext, useState } from "react";
+import { LanguageContext } from "../components/contextprovider/Language";
 
-const Postnews = () => {
+const Notification = () => {
   const [load, setload] = useState(false);
-  //here i will navigate to login page if there is no token on local storage
-  const naviagete = useNavigate();
-  const token = localStorage.getItem("token");
-  useEffect(() => {
-    if (!token) {
-      return naviagete("/login");
-    }
-    setload(true);
-    ApI.checktoken(token)
-      .then((data) => {
-        console.log("gggg", data);
-        if (data.status !== 200) {
-          setload(false);
-          return naviagete("/login");
-        }
-        setload(false);
-        return;
-      })
-      .catch((err) => {
-        setload(false);
-        return naviagete("/login");
-      });
-  }, [token]);
-
+  const { contextData } = useContext(LanguageContext);
+  console.log("i thing you are in o" + contextData.Language);
   const [Uploaddatas, setUploaddatas] = useState({
     Title: "",
     description: "",
-    myfile: "",
   });
-
-  function postsender(e) {
-    e.preventDefault();
-    const fd = new FormData();
-    Object.entries(Uploaddatas).forEach(([key, value]) => {
-      fd.append(key, value);
-    });
-    console.log(fd);
-    ApI.addnews(fd).then((data) => {
-      console.log(data);
-    });
-  }
 
   return load ? (
     "loding..."
@@ -56,6 +18,7 @@ const Postnews = () => {
         className="max-w-md mx-auto mt-16 p-4 bg-white shadow rounded"
         encType="multipart/form-data"
       >
+        {contextData.Language == "English" ? "  new notifications" : "ሓዱሽ ሓበሬታ"}
         <h2 className="text-2xl font-bold mb-4">upload video or image</h2>
         <div className="mb-4">
           <label htmlFor="name" className="block mb-1">
@@ -97,19 +60,6 @@ const Postnews = () => {
             className="w-full py-2 px-4 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
           ></textarea>
         </div>
-        <div className="mb-4">
-          <label htmlFor="video" className="block mb-1">
-            upload image or video
-          </label>
-          <input
-            type="file"
-            className="w-full py-2 px-4 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            name=""
-            onChange={(e) =>
-              setUploaddatas((p) => ({ ...p, myfile: e.target.files[0] }))
-            }
-          />
-        </div>
 
         <button
           type="submit"
@@ -123,4 +73,4 @@ const Postnews = () => {
   );
 };
 
-export default Postnews;
+export default Notification;

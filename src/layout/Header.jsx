@@ -1,8 +1,13 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { LanguageContext } from "../components/contextprovider/Language";
 const Header = () => {
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  useEffect(() => {
+    // Update token in state when it changes in localStorage
+    setToken(localStorage.getItem("token"));
+  }, []);
   const { contextData, setcontextData } = useContext(LanguageContext);
 
   console.log(contextData.Language);
@@ -27,16 +32,25 @@ const Header = () => {
           {contextData.Language == "English" ? "About Us" : "ብዛዕባና"}
         </Link>
         <Link to="/postnews">
-          {contextData.Language == "English" ? "Post News" : "አድራሻ አድራሻ"}
+          {contextData.Language == "English" ? "Post News" : "ዜና የእትው"}
         </Link>
-
+        <Link to="/gallery">
+          {contextData.Language == "English" ? "Gallery" : "ምስሊታት"}
+        </Link>
         <Link to="/contact">
           {contextData.Language == "English" ? "Contact Us" : "ይርከቡና"}
         </Link>
-        <Link to="/login">
-          {contextData.Language == "English" ? "Login" : "ይእተዉ"}
-        </Link>
-
+        {/* //here if no token the page will display login and rederict to it but if
+        there is token it will display logout */}
+        {!token ? (
+          <Link to="/login">
+            {contextData.Language === "English" ? "Login" : "ግባ"}
+          </Link>
+        ) : (
+          <Link to="/logout">
+            {contextData.Language === "English" ? "Logout" : "ውጣ"}
+          </Link>
+        )}
         <select
           name="contextData.Language"
           className="text-green-900"
