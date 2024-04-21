@@ -15,6 +15,9 @@ import Logout from "./components/Logout";
 import Notification from "./components/Notification";
 import Gallery from "./components/Gallery";
 import Postevent from "./components/admin/Postevent";
+import Footer from "./layout/Footer";
+import Lost from "./components/Lost";
+
 
 const App = () => {
   return (
@@ -34,7 +37,9 @@ const App = () => {
           <Route path={"/notification"} element={<Notification />}></Route>
           <Route path={"/gallery"} element={<Gallery />}></Route>
           <Route path={"/postevent"} element={<Postevent />}></Route>
+          <Route path="*" element={<Lost/>}></Route>
         </Routes>
+        <Footer />
       </BrowserRouter>
     </Language>
   );

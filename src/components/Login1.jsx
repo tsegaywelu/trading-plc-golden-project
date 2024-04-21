@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import API from "./Utility/API";
+import { LanguageContext } from "../components/contextprovider/Language";
 
 const Login1 = () => {
+  const { contextData, setcontextData } = useContext(LanguageContext);
   const navigate = useNavigate();
   const [user, setUser] = useState({ email: "", password: "" });
   function loguser(e) {
@@ -10,6 +12,7 @@ const Login1 = () => {
 
     API.Loginuser(user).then((data) => {
       if (data.data.token) {
+        setcontextData((d) => ({ ...d, token: data.data.token }));
         console.log(data.data.token);
         localStorage.setItem("token", data.data.token);
         navigate("/", { replace: true });

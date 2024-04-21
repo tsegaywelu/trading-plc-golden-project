@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 import { LanguageContext } from "../components/contextprovider/Language";
 const Header = () => {
-  const [token, setToken] = useState(localStorage.getItem("token"));
-  useEffect(() => {
+  /*  const [token, setToken] = useState(localStorage.getItem("token")); */
+  /*   useEffect(() => {
     // Update token in state when it changes in localStorage
     setToken(localStorage.getItem("token"));
-  }, []);
+  }, [token]); */
   const { contextData, setcontextData } = useContext(LanguageContext);
 
   console.log(contextData.Language);
@@ -45,15 +45,17 @@ const Header = () => {
         </Link>
         {/* //here if no token the page will display login and rederict to it but if
         there is token it will display logout */}
-        {!token ? (
-          <Link to="/login">
-            {contextData.Language === "English" ? "Login" : "ግባ"}
-          </Link>
-        ) : (
+        {contextData.token ? (
           <Link to="/logout">
             {contextData.Language === "English" ? "Logout" : "ውጣ"}
           </Link>
+        ) : (
+          <Link to="/login">
+            {contextData.Language === "English" ? "Login" : "ግባ"}
+          </Link>
         )}
+
+        
         <select
           name="contextData.Language"
           className="text-green-900"
