@@ -15,7 +15,10 @@ const newstSchema = new mongoose.Schema({
     required: true
   },
   // I  can add more fields like author, date, etc. as needed
+},{
+  timestamps:true
 });
+
 
 // Creating  a model based on the schema
 const News = mongoose.model('Post', newstSchema);
