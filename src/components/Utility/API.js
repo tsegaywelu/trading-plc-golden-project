@@ -21,6 +21,10 @@ const ApI = {
       headers: { auth: `bearer ${localStorage.getItem("token")}` },
     });
   },
+  getevents:async()=>{
+    return API_SERVICE.get('/getevents')
+
+  },
 
   getnews: async () => {
     return API_SERVICE.get("/getnews");

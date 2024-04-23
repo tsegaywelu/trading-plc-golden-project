@@ -27,9 +27,10 @@ const PrevArrow = ({ onClick }) => {
 const Home = () => {
   const { contextData } = useContext(LanguageContext);
   const [news, setNews] = useState([]);
+  const [events,setevents]=useState([]);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [sliderAutoplay, setSliderAutoplay] = useState(true);
-
+ //to load videos and images from post database 
   useEffect(() => {
     API.getnews()
       .then((res) => {
@@ -40,6 +41,18 @@ const Home = () => {
         console.log(err);
       });
   }, []);
+  //to load events and advertisments from event database
+  useEffect(() => {
+    API.getevents()
+      .then((res) => {
+        console.log(res);
+        setevents(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  
 
   const settings = {
     dots: true,
@@ -111,8 +124,8 @@ const Home = () => {
                   onMouseLeave={() => setSliderAutoplay(true)} // Resume autoplay on mouse leave
                 />
               )}
-              <h3>{n?.Title}</h3>
-              <p>{n?.description}</p>
+              <h3 className="text-2xl font-bold text-gray-950  float-center mb-2 ml-5">{n?.Title}</h3> 
+              <p className="text-xl">{n?.description}    <i className="float-end text-sm">7 days ago</i></p>
               <textarea
                 name="comment"
                 id="comments"
@@ -123,7 +136,7 @@ const Home = () => {
                     ? "  write your comment here"
                     : "ረኢቶኦም አብዚ ይጽሓፍልና"
                 }
-                className="bg-gray-900 w-full text-white font-bold rounded-lg p-2"
+                className="bg-gray-50 w-full text-black font-bold rounded-lg p-2 border-blue-200 border-x-2"
               ></textarea>
               <button
                 className="w-full flex justify-center py-2 px-4 border
@@ -138,34 +151,27 @@ const Home = () => {
           ))}
         </Slider>
 
-        <div className="  w-1/3  h-full p-2">
+        <div className="  w-1/3  h-full p-2">{/* for advertisment  */}
           <h3 className="text-lg font-bold flex justify-center align-middle relative ">
             {contextData.Language == "English"
               ? "  new notifications"
               : "ሓዱሽ ሓበሬታ"}
           </h3>
           <div>
-            <a href="">
-              <p className="flex justify-center align-middle text-blue-700 hover:text-green-600 hover:font-bold">
-                thuehfiewgfieyw
+           
+         {/* display here the title from event database  */}
+         <a href="">
+              <p className=" ">
+              {events.map((k)=>(
+         <ul><li className="flex justify-center align-middle text-blue-700 hover:text-green-600 hover:font-bold">
+          {k?.Title} click here to show more !
+          
+          </li></ul>
+
+         ))}
               </p>
-            </a>
-            <a href="">
-              <p className="flex justify-center align-middle text-blue-700 hover:text-green-600 hover:font-bold">
-                thuehfiewgfieyw
-              </p>
-            </a>
-            <a href="">
-              <p className="flex justify-center align-middle text-blue-700 hover:text-green-600 hover:font-bold">
-                thuehfiewgfieyw
-              </p>
-            </a>
-            <a href="">
-              <p className="flex justify-center align-middle text-blue-700 hover:text-green-600 hover:font-bold">
-                thuehfiewgfieyw
-              </p>
-            </a>
-            <p className="flex justify-center align-middle">kbviyerbviyerb</p>
+         </a>
+         
           </div>
         </div>
       </div>

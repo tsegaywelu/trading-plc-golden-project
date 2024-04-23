@@ -66,7 +66,7 @@ const Login1 = () => {
                       setUser({ ...user, email: e.target.value });
                     }}
                   />
-                  <div className="hidden absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                  <div className=" absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                     <svg
                       className="h-5 w-5 text-red-500"
                       fill="currentColor"
