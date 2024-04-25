@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import API from "./Utility/API";
-
+//this is to check my github
 const Registration = () => {
   const [submiter,setsubiting]=useState(false)
   const [user, setUser] = useState({
@@ -70,7 +70,7 @@ const Registration = () => {
                     }
                   />
                   {user.name==''&&submiter&&<small className="text-red-700">this field is required!</small>}
-                  <div className="hidden absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                  <div className=" absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                     <svg
                       className="h-5 w-5 text-red-500"
                       fill="currentColor"
