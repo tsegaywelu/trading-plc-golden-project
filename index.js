@@ -1,6 +1,32 @@
 const express = require("express");
 const cors = require("cors");
+const http = require('http')
+
+
 const app = express();
+const server = http.createServer(app)
+const socketio=require("socket.io")
+const io= socketio(server,{
+  cors:{
+    origin:"http://localhost:5173",
+    methods:["GET","POST"]
+  }
+})
+
+
+
+
+io.on("connection",(socket)=>{
+  socket.on('hello',(data)=>{
+    console.log(data)
+  })
+})
+
+
+
+
+
+
 app.use(cors());
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
@@ -23,6 +49,6 @@ mongoose
 const route = require("./routes/route.js");
 app.use(route);
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`server is running on port ${port}`);
 });
