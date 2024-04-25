@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import API from "./Utility/API";
 
 const Registration = () => {
+  const [submiter,setsubiting]=useState(false)
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -11,7 +12,9 @@ const Registration = () => {
 
   function Signup(e) {
     e.preventDefault();
-
+   setsubiting(true)
+   if(user.name==''||user.email==""||user.password=='')
+   { return alert("please fill out all the required fillds");}
     API.Registeruser(user).then((data) => {
       console.log(data);
     });
@@ -22,6 +25,7 @@ const Registration = () => {
 
   return (
     <div>
+  
       <div className="min-h-screen bg-gray-50 flex flex-col justify-middle py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           {/* <img className="mx-auto h-10 w-auto" src="https://www.svgrepo.com/show/301692/login.svg" alt="Workflow"/> */}
@@ -65,6 +69,7 @@ const Registration = () => {
                       setUser((p) => ({ ...p, name: e.target.value }))
                     }
                   />
+                  {user.name==''&&submiter&&<small className="text-red-700">this field is required!</small>}
                   <div className="hidden absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                     <svg
                       className="h-5 w-5 text-red-500"
@@ -105,7 +110,8 @@ const Registration = () => {
                       setUser({ ...user, email: e.target.value });
                     }}
                   />
-                  <div className="hidden absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                  {user.email==''&&submiter&&<small className="text-red-700">this field is required!</small>}
+                  <div className=" absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                     <svg
                       className="h-5 w-5 text-red-500"
                       fill="currentColor"
@@ -143,6 +149,7 @@ const Registration = () => {
                       setUser({ ...user, password: e.target.value });
                     }}
                   />
+                  {user.password==''&&submiter&&<small className="text-red-700">this field is required!</small>}
                 </div>
               </div>
 

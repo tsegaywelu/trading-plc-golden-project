@@ -7,8 +7,13 @@ const Login1 = () => {
   const { contextData, setcontextData } = useContext(LanguageContext);
   const navigate = useNavigate();
   const [user, setUser] = useState({ email: "", password: "" });
+  const [submiting,setsubmiting]=useState(false)
   function loguser(e) {
+    setsubmiting(true)
     e.preventDefault();
+    if(user.email==''||user.password==''){
+    return alert("please fill out all the requierd filds to login!")
+    }
 
     API.Loginuser(user).then((data) => {
       if (data.data.token) {
@@ -66,6 +71,7 @@ const Login1 = () => {
                       setUser({ ...user, email: e.target.value });
                     }}
                   />
+                  {user.email==''&&submiting&&<small className="text-red-700">this field is required!</small>}
                   <div className=" absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                     <svg
                       className="h-5 w-5 text-red-500"
@@ -103,7 +109,9 @@ const Login1 = () => {
                     onChange={(e) => {
                       setUser({ ...user, password: e.target.value });
                     }}
+
                   />
+                   {user.password==''&&submiting&&<small className="text-red-700">this field is required!</small>}
                 </div>
               </div>
 

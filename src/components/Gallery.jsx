@@ -7,7 +7,7 @@ const Gallery = () => {
  
  <div className="group cursor-pointer relative">
    <img
-     src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHxuYXR1cmV8ZW58MHwwfHx8MTY5NDA5OTcyOXww&ixlib=rb-4.0.3&q=80&w=1080"
+     src="./trade.PNG"  /* what is the problem here */
      alt="Image 1"
      className="w-full h-48 object-cover rounded-lg transition-transform transform scale-100 group-hover:scale-105"
    />

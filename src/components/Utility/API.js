@@ -39,6 +39,9 @@ const ApI = {
   checktoken: async (data) => {
     return API_SERVICE.post("/checktoken", { data });
   },
+  messagesending:async (data)=>{
+    return  API_SERVICE.post('/recivemessage',data)
+  }
 };
 
 export default ApI;

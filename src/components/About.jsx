@@ -1,27 +1,27 @@
 import React from "react";
-import { useContext, useState } from "react";
+import { useContext, } from "react";
 import { LanguageContext } from "../components/contextprovider/Language";
 const About = () => {
   const { contextData } = useContext(LanguageContext);
 
-  // console.log("your language is" + contextData.language);
+  //console.log("your language is" + contextData.Language);
   return (
     <div>
-      <h1 className=" text-center  font-bold text-green-900  animate-pulse justify-center text-5xl">
-        {contextData.language} Golden business group{" "}
+      <h1 className=" text-center  font-bold text-green-900  animate-pulse justify-center text-3xl">
+               Golden business group
       </h1>
       <section className="">
-        <div className="py-12 bg-white">
+        <div className="py-3 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="lg:text-center">
               <h2 className="font-heading mb-4 bg-orange-100 text-orange-800 px-4 py-2 rounded-lg md:w-64 md:mx-auto text-xs font-semibold tracking-widest  uppercase title-font">
-                Why choose us?{" "}
+                Why choose us?
                 {contextData.Language == "English" ? "News" : "ሓዱሽ ሓበሬታ"}
               </h2>
               <p className="font-heading mt-2 text-3xl leading-8 font-semibold tracking-tight text-gray-900 sm:text-4xl">
                 We know tech, we know finance. We are fintech experts.
               </p>
-              <p className="mt-4 max-w-2xl text-lg text-gray-500 lg:mx-auto">
+              <p className="mt-4 max-w-2xl text-lg  text-black lg:mx-auto">
                 We know how to handle taxation for all the countried we operate
                 in. We care for our customers and help them manage cashflows.
               </p>
@@ -38,7 +38,7 @@ const About = () => {
                       Powerful API
                     </p>
                   </dt>
-                  <dd className="mt-2 ml-16 text-base text-gray-500">
+                  <dd className="mt-2 ml-16 text-base  text-black">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Maiores impedit perferendis suscipit eaque, iste dolor
                     cupiditate blanditiis ratione.
@@ -53,7 +53,7 @@ const About = () => {
                       Easy to integrate SDK
                     </p>
                   </dt>
-                  <dd className="mt-2 ml-16 text-base text-gray-500">
+                  <dd className="mt-2 ml-16 text-base  text-black">
                     {" "}
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Maiores impedit perferendis suscipit eaque, iste dolor
@@ -69,7 +69,7 @@ const About = () => {
                       Low Transaction Cost
                     </p>
                   </dt>
-                  <dd className="mt-2 ml-16 text-base text-gray-500">
+                  <dd className="mt-2 ml-16 text-base  text-black">
                     {" "}
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Maiores impedit perferendis suscipit eaque, iste dolor
@@ -85,7 +85,7 @@ const About = () => {
                       Powerful Dashboard
                     </p>
                   </dt>
-                  <dd className="mt-2 ml-16 text-base text-gray-500">
+                  <dd className="mt-2 ml-16 text-base  text-black">
                     {" "}
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Maiores impedit perferendis suscipit eaque, iste dolor

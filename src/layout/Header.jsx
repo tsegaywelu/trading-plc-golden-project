@@ -19,30 +19,44 @@ const Header = () => {
         <Link to="/">
           {contextData.Language == "English" ? "Home" : "ዋና ገጽ"}
         </Link>
-        <Link to="./Services">
-          {contextData.Language == "English"
-            ? "Services/Products"
-            : "እንህቦም ግልጋሎታት"}
+       
+        <Link to="/about">
+          {contextData.Language == "English" ? "About Us" : "ብዛዕባና"}
+        </Link>
+        <Link to="/contact">
+          {contextData.Language == "English" ? "Contact Us" : "ይርከቡና"}
+        </Link>
+        <Link to="/gallery">
+          {contextData.Language == "English" ? "Gallery" : "ምስሊታት"}
         </Link>
         <Link to="./news">
           {" "}
           {contextData.Language == "English" ? "News" : "ሓዱሽ ሓበሬታ"}
         </Link>
-        <Link to="/about">
-          {contextData.Language == "English" ? "About Us" : "ብዛዕባና"}
-        </Link>
-        <Link to="/postnews">
+       
+        {/* <Link to="/postnews">
           {contextData.Language == "English" ? "Post News" : "ዜና የእትው"}
         </Link>
         <Link to="/postevent">
           {contextData.Language == "English" ? "post event" : "ናይ ቀጻሊ ስራሕ"}
+      
+        
+        </Link> */}
+
+        {contextData.token ? (
+          <Link to="/postnews">
+          {contextData.Language == "English" ? "Post News" : "ዜና የእትው"}
         </Link>
-        <Link to="/gallery">
-          {contextData.Language == "English" ? "Gallery" : "ምስሊታት"}
-        </Link>
-        <Link to="/contact">
-          {contextData.Language == "English" ? "Contact Us" : "ይርከቡና"}
-        </Link>
+          
+        ) : (
+          <Link to="/login">
+            {contextData.Language === "English" ? null : null}
+          </Link>
+        )}
+        
+         
+        
+        
         {/* //here if no token the page will display login and rederict to it but if
         there is token it will display logout */}
         {contextData.token ? (

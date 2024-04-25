@@ -9,7 +9,9 @@ const Postnews = () => {
   //here i will navigate to login page if there is no token on local storage
   const naviagete = useNavigate();
   const token = localStorage.getItem("token");
+  const [submiting,setsubmiting]=useState(false)
   useEffect(() => {
+
     if (!token) {
       return naviagete("/login");
     }
@@ -38,13 +40,26 @@ const Postnews = () => {
 
   function postsender(e) {
     e.preventDefault();
+    setsubmiting(true);
+    if(Uploaddatas.Title==''||Uploaddatas.description=='' ||Uploaddatas.myfile ===''){
+       return alert('please fill all the required filds correctlly');
+    }
+    
     const fd = new FormData();
     Object.entries(Uploaddatas).forEach(([key, value]) => {
       fd.append(key, value);
     });
     console.log(fd);
     ApI.addnews(fd).then((data) => {
+
       console.log(data);
+      setsubmiting(false)
+    }).catch(e=>{
+      //console.log(e)  the whole error
+      console.log(e.response.data); //the res.send message only
+      //console.log(e.message); //error message only
+      
+      
     });
   }
 
@@ -71,6 +86,7 @@ const Postnews = () => {
               setUploaddatas((p) => ({ ...p, Title: e.target.value }))
             }
           />
+          {Uploaddatas.Title==''&&submiting&&<small className="text-red-700">this field is required!</small>}
         </div>
         <div className="mb-4">
           <label htmlFor="description" className="block mb-1">
@@ -86,6 +102,7 @@ const Postnews = () => {
               setUploaddatas((p) => ({ ...p, description: e.target.value }))
             }
           />
+          {Uploaddatas.description==''&& submiting&&<small className="text-red-700">this field is required!</small>}
         </div>
 
         <div className="mb-4">
@@ -109,6 +126,7 @@ const Postnews = () => {
               setUploaddatas((p) => ({ ...p, myfile: e.target.files[0] }))
             }
           />
+          {Uploaddatas.myfile==''&&submiting&&<small className="text-red-700">this field is required!</small>}
         </div>
 
         <button
